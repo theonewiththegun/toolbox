@@ -20,7 +20,7 @@ class Folder:
         """
         You can pass indices of files names of which you want to get through *args.
         """
-        excluded_file_names = ['.DS_Store']
+        excluded_file_names = ['.DS_Store', '.gitignore']
         current_file_names_snapshot_base = os.listdir(self.abs_path)
         current_file_names_snapshot = [f for f in current_file_names_snapshot_base if f not in excluded_file_names]
         if args:
