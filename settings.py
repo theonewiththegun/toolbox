@@ -34,7 +34,7 @@ def get_settings_prop(prop_name: str, default_value=None):
             return settings[prop_name]
         except KeyError:
             template_str = f"No preset value for `{prop_name}` has been found in `settings.json`." \
-                           f" Using the default value instead `{default_value}`."
+                           f" Using the default value instead: `{default_value}`."
             print(template_str)
             return default_value
     else:
