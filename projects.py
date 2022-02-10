@@ -1,11 +1,18 @@
 import os
 import shutil
 
-import settings
-import utils
+from toolbox import settings
+from toolbox import utils
 
-ROOT_DIR = utils.Folder(settings.get_settings_prop('ROJECTS_ROOT'))
-TEMPLATES_DIR = utils.Folder('templates')
+MODULE_DIR_PATH = os.path.dirname(os.path.abspath(__file__))
+DEFAULT_ROOT_DIR_PATH = os.path.join(MODULE_DIR_PATH, '..')
+DEFAULT_TEMPLATES_DIR_PATH = os.path.join(MODULE_DIR_PATH, 'templates')
+
+# if possible use PROJECTS_ROOT var from settings, otherwise use the parent dir of `toolbox` instead
+ROOT_DIR = utils.Folder(
+    settings.get_settings_prop('PROJECTS_ROOT', default_value=DEFAULT_ROOT_DIR_PATH)
+)
+TEMPLATES_DIR = utils.Folder(DEFAULT_TEMPLATES_DIR_PATH)
 
 
 def init_project(name):
