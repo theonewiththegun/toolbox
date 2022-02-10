@@ -25,10 +25,20 @@ def write_settings(dict_to_write: dict):
         json.dump(dict_to_write, settings_file)
 
 
-def get_settings_prop(prop_name: str):
+def get_settings_prop(prop_name: str, default_value=None):
     check_settings_file()
     settings = read_settings()
-    return settings[prop_name]
+
+    if default_value is not None:
+        try:
+            return settings[prop_name]
+        except KeyError:
+            template_str = f"No preset value for `{prop_name}` has been found in `settings.json`." \
+                           f" Using the default value instead `{default_value}`."
+            print(template_str)
+            return default_value
+    else:
+        return settings[prop_name]
 
 
 def get_settings_prop_deep(*json_path):
