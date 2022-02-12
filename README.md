@@ -20,4 +20,4 @@ This is a set of conveniece functions for handling diffirent variables on disk, 
 
 ## Utils
 
-This is a set of functions that help other submodules ot help you with misc stuff.
+This is a set of functions that helps other submodules or helps you with misc stuff.
